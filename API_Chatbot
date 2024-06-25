@@ -1,0 +1,14 @@
+import requests
+
+API_URL = "https://api.stack-ai.com/inference/v0/run/e6a01187-18d4-487a-897e-df829accb03c/663cd3dc89b81b6f17886df9"
+headers = {'Authorization':
+			 'Bearer a10f6968-2a90-495c-a3eb-4bc9cd66f11d',
+			 'Content-Type': 'application/json'
+		}
+
+def query(payload):
+ response = requests.post(API_URL, headers=headers, json=payload)
+ return response.json()
+
+output = query({"in-0": """I am called john
+""", "user_id": """<USER or Conversation ID>"""})
